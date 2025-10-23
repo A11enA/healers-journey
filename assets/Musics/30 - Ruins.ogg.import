@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cglfnmdc0a833"
-valid=false
+path="res://.godot/imported/30 - Ruins.ogg-e07bb712eb352adf21be51416a7f5a62.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/30 - Ruins.ogg"
+dest_files=["res://.godot/imported/30 - Ruins.ogg-e07bb712eb352adf21be51416a7f5a62.oggvorbisstr"]
 
 [params]
 

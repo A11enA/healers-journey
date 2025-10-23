@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://hhe8y8h5capy"
-valid=false
+path="res://.godot/imported/7 - Sad Theme.ogg-ab567298f2247c9b249ba8487231d1eb.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/7 - Sad Theme.ogg"
+dest_files=["res://.godot/imported/7 - Sad Theme.ogg-ab567298f2247c9b249ba8487231d1eb.oggvorbisstr"]
 
 [params]
 

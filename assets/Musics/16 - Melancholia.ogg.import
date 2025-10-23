@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://du7o064y8i3n5"
-valid=false
+path="res://.godot/imported/16 - Melancholia.ogg-0f359922d48b6ab152ce66cc8616c348.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/16 - Melancholia.ogg"
+dest_files=["res://.godot/imported/16 - Melancholia.ogg-0f359922d48b6ab152ce66cc8616c348.oggvorbisstr"]
 
 [params]
 

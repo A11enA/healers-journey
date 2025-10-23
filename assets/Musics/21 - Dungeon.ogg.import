@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cik7hdmp7sbjn"
-valid=false
+path="res://.godot/imported/21 - Dungeon.ogg-60335919fbbdd8b271742643bd09441f.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/21 - Dungeon.ogg"
+dest_files=["res://.godot/imported/21 - Dungeon.ogg-60335919fbbdd8b271742643bd09441f.oggvorbisstr"]
 
 [params]
 

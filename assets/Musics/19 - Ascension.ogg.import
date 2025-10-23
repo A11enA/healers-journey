@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://b1tnfliwhxqm0"
-valid=false
+path="res://.godot/imported/19 - Ascension.ogg-fa918cb5a7919e1a967c63ab60869912.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/19 - Ascension.ogg"
+dest_files=["res://.godot/imported/19 - Ascension.ogg-fa918cb5a7919e1a967c63ab60869912.oggvorbisstr"]
 
 [params]
 

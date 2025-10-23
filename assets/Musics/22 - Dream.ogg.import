@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://b476bw4aik6je"
-valid=false
+path="res://.godot/imported/22 - Dream.ogg-0b73bf32e615c2211f0e3371768a9274.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/22 - Dream.ogg"
+dest_files=["res://.godot/imported/22 - Dream.ogg-0b73bf32e615c2211f0e3371768a9274.oggvorbisstr"]
 
 [params]
 

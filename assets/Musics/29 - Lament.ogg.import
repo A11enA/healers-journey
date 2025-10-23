@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dh3gy5248fkin"
-valid=false
+path="res://.godot/imported/29 - Lament.ogg-3873839c09f597b40413b1bfecc769f1.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/29 - Lament.ogg"
+dest_files=["res://.godot/imported/29 - Lament.ogg-3873839c09f597b40413b1bfecc769f1.oggvorbisstr"]
 
 [params]
 

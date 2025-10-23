@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const move_speed: float = 100.0
+const move_speed: float = 500.0
 
 
 

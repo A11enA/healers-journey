@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://biip6m11p23rb"
-valid=false
+path="res://.godot/imported/23 - Road.ogg-febeddaa3fa99d20c55c7871710c039b.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/23 - Road.ogg"
+dest_files=["res://.godot/imported/23 - Road.ogg-febeddaa3fa99d20c55c7871710c039b.oggvorbisstr"]
 
 [params]
 

@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://862fnugr6y57"
-valid=false
+path="res://.godot/imported/3 - Revelation.ogg-5d6548142b710ca91a9f493f76561161.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/3 - Revelation.ogg"
+dest_files=["res://.godot/imported/3 - Revelation.ogg-5d6548142b710ca91a9f493f76561161.oggvorbisstr"]
 
 [params]
 

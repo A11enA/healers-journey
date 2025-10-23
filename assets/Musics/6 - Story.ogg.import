@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://k8uq6puoqs34"
-valid=false
+path="res://.godot/imported/6 - Story.ogg-e4dd9f0d3e4026428885cddb414ab7fe.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/6 - Story.ogg"
+dest_files=["res://.godot/imported/6 - Story.ogg-e4dd9f0d3e4026428885cddb414ab7fe.oggvorbisstr"]
 
 [params]
 

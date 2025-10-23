@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://orsbiul3xv58"
-valid=false
+path="res://.godot/imported/17 - Fight.ogg-b3774b755f2a122d96d793f890da30b2.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Musics/17 - Fight.ogg"
+dest_files=["res://.godot/imported/17 - Fight.ogg-b3774b755f2a122d96d793f890da30b2.oggvorbisstr"]
 
 [params]
 
