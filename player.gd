@@ -1,12 +1,24 @@
 extends CharacterBody2D
 
 
-const move_speed: float = 500.0
+const move_speed: float = 100.0
 
 
 
 func _physics_process(delta: float) -> void:
+	#shorthand movement
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = move_vector * move_speed
-
+	
+	if velocity.x > 0:
+		$AnimatedSprite2D.play("walk_right")
+	elif velocity.x < 0:
+		$AnimatedSprite2D.play("walk_left")
+	elif velocity.y > 0:
+		$AnimatedSprite2D.play("walk_down")
+	elif velocity.y < 0:
+		$AnimatedSprite2D.play("walk_up")
+	else:
+		$AnimatedSprite2D.stop()
+		
 	move_and_slide()

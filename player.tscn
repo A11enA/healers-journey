@@ -145,12 +145,11 @@ animations = [{
 script = ExtResource("1_7hpwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-scale = Vector2(4, 4)
+position = Vector2(0, 3.55271e-15)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_u61ep")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_l230d")
 animation = &"walk_up"
-frame_progress = 0.0784456
+frame_progress = 0.747043
