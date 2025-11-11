@@ -4,6 +4,8 @@ class_name Player
 const move_speed: float = 100.0
 
 
+func _ready() -> void:
+	position = SceneManager.player_spawn_position
 
 func _physics_process(delta: float) -> void:
 	#shorthand movement
@@ -22,3 +24,4 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		
 	move_and_slide()
+	

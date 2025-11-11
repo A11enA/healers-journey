@@ -2237,16 +2237,5 @@ shape = SubResource("RectangleShape2D_gu1bg")
 [node name="player_spawn" type="Marker2D" parent="."]
 position = Vector2(144, 200)
 
-[node name="Portal2" type="Area2D" parent="."]
-position = Vector2(136, 173)
-script = ExtResource("7_q70gp")
-next_scene = "res://Scenes/tent.tscn"
-player_location = Vector2(144, 136)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2"]
-shape = SubResource("RectangleShape2D_gu1bg")
-
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
-[connection signal="body_entered" from="Portal2" to="Portal2" method="_on_body_entered"]
-[connection signal="body_exited" from="Portal2" to="Portal2" method="_on_body_exited"]
