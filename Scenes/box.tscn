@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmqusa6n2wvtq"]
+
+[ext_resource type="Texture2D" uid="uid://dw7u1yy4yi4gd" path="res://assets/Backgrounds/Tilesets/TilesetDungeon.png" id="1_cbrq5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c0mt"]
+atlas = ExtResource("1_cbrq5")
+region = Rect2(15.7353, 47.9761, 16.5784, 16.9146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er7mr"]
+size = Vector2(14, 14)
+
+[node name="Box" type="RigidBody2D" groups=["pushable"]]
+gravity_scale = 0.0
+linear_damp = 67.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6c0mt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_er7mr")

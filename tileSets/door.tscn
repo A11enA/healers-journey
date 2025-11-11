@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://nyd80388cm70"]
+
+[ext_resource type="Texture2D" uid="uid://c7mvps68cmkrt" path="res://assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="1_dqhao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knfrk"]
+atlas = ExtResource("1_dqhao")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttee0"]
+atlas = ExtResource("1_dqhao")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvr2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knfrk")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttee0")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="door" type="StaticBody2D"]
+z_index = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qvr2s")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

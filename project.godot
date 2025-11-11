@@ -19,6 +19,40 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://Scripts/SceneManager.gd"
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "orange",
+"res://Scripts/": "yellow",
+"res://assets/": "red",
+"res://assets/Actor/": "orange",
+"res://assets/Actor/Animals/": "yellow",
+"res://assets/Actor/Boss/": "green",
+"res://assets/Actor/Characters/": "teal",
+"res://assets/Actor/Monsters/": "blue",
+"res://assets/Backgrounds/": "yellow",
+"res://assets/Backgrounds/Animated/": "green",
+"res://assets/Backgrounds/Tilesets/": "teal",
+"res://assets/Backgrounds/Vehicles/": "blue",
+"res://assets/FX/": "green",
+"res://assets/FX/Elemental/": "teal",
+"res://assets/FX/Environment/": "blue",
+"res://assets/FX/Magic/": "purple",
+"res://assets/FX/Particle/": "pink",
+"res://assets/FX/Projectile/": "red",
+"res://assets/FX/SlashFx/": "orange",
+"res://assets/FX/Smoke/": "yellow",
+"res://assets/Items/": "teal",
+"res://assets/Musics/": "blue",
+"res://assets/Sounds/": "purple",
+"res://assets/Ui/": "pink",
+"res://tileSets/": "green"
+}
+
+[global_group]
+
+pushable="able to be pushed"
+
 [input]
 
 move_down={
