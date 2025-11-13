@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bomvm3pfjkish" path="res://Scenes/portal_2.tscn" id="5_g2aby"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3me1x"]
 [ext_resource type="PackedScene" uid="uid://cddamk21aslnr" path="res://Scenes/portal_3.tscn" id="6_o4mm0"]
-[ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://tileSets/puzzle_button.tscn" id="7_jova5"]
+[ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://puzzle_button.tscn" id="7_jova5"]
 [ext_resource type="Script" path="res://Scripts/Portal.gd" id="7_q70gp"]
-[ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://tileSets/door.tscn" id="8_mhdxd"]
+[ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="8_mhdxd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27wyp"]
 
@@ -43,7 +43,7 @@ editor_description = "second layer of nature"
 z_index = 2
 y_sort_enabled = true
 position = Vector2(448, 328)
-tile_map_data = PackedByteArray("AADs//X/AAAAAAcAAADs/wIAAAAAAAAAAAD5/+//AAAAAAAAAAAOAPH/AAAAAAAAAAAPAAIABQAEAAAAAAADAAcAAAAAAAAAAADy/w0AAAAAAAAAAAAGAPX/AAAAAAAAAAAeAA0AAAAAAAAAAAAPAAkAAAAAAAAAAAAlAP3/AAAAAAAAAAAmAPL/AAAAAAAAAAAcAAUAAAAAAAAAAAAJABAAAAAAAAAAAAAnAAkAAAAAAAAAAADg/xAAAAAAAAAAAADh/xoAAAAAAAAAAADh/xsAAAAAAAAAAADh/xwAAAAAAAAAAADi/xwAAAAAAAAAAAABAB4AAAAAAAAAAAAZABUAAAAAAAAAAAAtACAAAAAAAAAAAAA3ABMAAAAAAAAAAAAsABUAAAAAAAAAAAAyAP//AAAAAAAAAAA2APD/AAAAAAAAAAA8AAEAAAAAAAAAAAA0AAwAAAAAAAAAAADg//T/AAAAAAAAAADW////AAAAAAAAAADh/wYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADs//X/AAAAAAcAAADs/wIAAAAAAAAAAAD5/+//AAAAAAAAAAAOAPH/AAAAAAAAAAAPAAIAAAAAAAAAAAADAAcAAAAAAAAAAADy/w0AAAAAAAAAAAAGAPX/AAAAAAAAAAAeAA0AAAAAAAAAAAAPAAkAAAAAAAAAAAAlAP3/AAAAAAAAAAAmAPL/AAAAAAAAAAAcAAUAAAAAAAAAAAAJABAAAAAAAAAAAAAnAAkAAAAAAAAAAADg/xAAAAAAAAAAAADh/xoAAAAAAAAAAADh/xsAAAAAAAAAAADh/xwAAAAAAAAAAADi/xwAAAAAAAAAAAABAB4AAAAAAAAAAAAZABUAAAAAAAAAAAAtACAAAAAAAAAAAAA3ABMAAAAAAAAAAAAsABUAAAAAAAAAAAAyAP//AAAAAAAAAAA2APD/AAAAAAAAAAA8AAEAAAAAAAAAAAA0AAwAAAAAAAAAAADg//T/AAAAAAAAAADW////AAAAAAAAAADh/wYAAAAAAAAAAAA=")
 tile_set = ExtResource("1_vr8h3")
 
 [node name="market" type="TileMapLayer" parent="."]
@@ -53,12 +53,6 @@ y_sort_enabled = true
 position = Vector2(520, 304)
 tile_map_data = PackedByteArray("AAAdAOz/AAAXABAAAAAdAOn/AAAXABAAAAARAOz/AAAXABAAABARAOn/AAAXABAAABASAO7/AAAQABAAAAAcAO7/AAAQABAAAAAXAO3/AAAQABAAAAAaAO3/AAATABAAAAAUAO3/AAATABAAAAAeAOf/AAAQABAAAAAQAOf/AAAQABAAAAANAOf/AAAQABAAAAAKAOf/AAAQABAAAAAhAOf/AAAQABAAAAAkAOf/AAAQABAAAAAbAOz/AAAQABAAAAAaAOz/AAAQABAAAAAZAOz/AAAQABAAAAAYAOz/AAAQABAAAAAYAO3/AAAQABAAAAAYAO7/AAAQABAAAAAZAO7/AAAQABAAAAAaAO//AAAQABAAAAAbAO//AAAQABAAAAAcAO//AAAQABAAAAAbAOn/AAAQABAAAAAbAOj/AAAQABAAAAAaAOj/AAAQABAAAAAaAOn/AAAQABAAAAAZAOn/AAAQABAAAAAYAOn/AAAQABAAAAAYAOr/AAAQABAAAAAXAOv/AAAQABAAAAAXAOz/AAAQABAAAAA=")
 enabled = false
-tile_set = ExtResource("1_vr8h3")
-
-[node name="ruined House" type="TileMapLayer" parent="."]
-z_index = 2
-position = Vector2(520, 304)
-tile_map_data = PackedByteArray("AAAIAAQAAwAEAAkAAAANAAMAAwAFAA8AAAAMAAIAAwARAA0AAAAIAAMAAwASAA0AAAANAAQAAwARAA0AAAALAAMAAwASAA0AAAAKAAMAAwASAA0AAAAMAAMAAwASAA0AAAAJAAMAAwARAA0AAAAKAAIAAwARAA0AAAALAAIAAwASAA0AAAAMAAQAAwASAA0AAAALAAQAAwATAA0AAAAJAAIAAwAFAA8AAAA=")
 tile_set = ExtResource("1_vr8h3")
 
 [node name="player" parent="." instance=ExtResource("6_3me1x")]
@@ -106,19 +100,21 @@ position = Vector2(144, 200)
 [node name="Box" parent="." instance=ExtResource("4_30yap")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(688, 400)
+position = Vector2(755, 392)
 
 [node name="Portal2" parent="." instance=ExtResource("5_g2aby")]
 
 [node name="Portal3" parent="." instance=ExtResource("6_o4mm0")]
-position = Vector2(688, 384)
+position = Vector2(600, 338)
 player_location = Vector2(688, 400)
 
 [node name="puzzleButton" parent="." instance=ExtResource("7_jova5")]
 position = Vector2(755, 376)
 
 [node name="door" parent="." instance=ExtResource("8_mhdxd")]
-position = Vector2(688, 384)
+position = Vector2(600, 342)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
+[connection signal="pushed" from="puzzleButton" to="door" method="_on_puzzle_button_pushed"]
+[connection signal="unpushed" from="puzzleButton" to="door" method="_on_puzzle_button_unpushed"]

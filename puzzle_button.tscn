@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsjhp6voi5ccb"]
 
 [ext_resource type="Texture2D" uid="uid://dw7u1yy4yi4gd" path="res://assets/Backgrounds/Tilesets/TilesetDungeon.png" id="1_av3pa"]
-[ext_resource type="Script" path="res://tileSets/puzzle_button.gd" id="1_hh6bs"]
+[ext_resource type="Script" path="res://Scripts/puzzle_button.gd" id="1_hh6bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwa4o"]
 size = Vector2(14, 12)

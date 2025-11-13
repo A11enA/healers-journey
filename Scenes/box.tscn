@@ -11,7 +11,7 @@ size = Vector2(14, 14)
 
 [node name="Box" type="RigidBody2D" groups=["pushable"]]
 gravity_scale = 0.0
-linear_damp = 67.0
+linear_damp = 21.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_6c0mt")
