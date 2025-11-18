@@ -1,18 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://cdcnof1h8qh68"]
+[gd_scene load_steps=8 format=4 uid="uid://cdcnof1h8qh68"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_vr8h3"]
+[ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_3hg67"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="4_30yap"]
-[ext_resource type="PackedScene" uid="uid://bomvm3pfjkish" path="res://Scenes/portal_2.tscn" id="5_g2aby"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3me1x"]
-[ext_resource type="PackedScene" uid="uid://cddamk21aslnr" path="res://Scenes/portal_3.tscn" id="6_o4mm0"]
-[ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://puzzle_button.tscn" id="7_jova5"]
-[ext_resource type="Script" path="res://Scripts/Portal.gd" id="7_q70gp"]
+[ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="7_jova5"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="8_mhdxd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27wyp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu1bg"]
-size = Vector2(48, 24)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -58,7 +53,7 @@ tile_set = ExtResource("1_vr8h3")
 [node name="player" parent="." instance=ExtResource("6_3me1x")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(144, 200)
+position = Vector2(135, 200)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
@@ -84,29 +79,21 @@ position = Vector2(1152, 324)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_27wyp")
 
-[node name="Portal" type="Area2D" parent="."]
-position = Vector2(896, 0)
-script = ExtResource("7_q70gp")
+[node name="marketPortal" parent="." instance=ExtResource("3_3hg67")]
+position = Vector2(900, 0)
 next_scene = "res://Scenes/market.tscn"
-player_location = Vector2(560, 600)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_gu1bg")
+player_location = Vector2(560, 590)
 
 [node name="player_spawn" type="Marker2D" parent="."]
-position = Vector2(144, 200)
+position = Vector2(135, 200)
+
+[node name="player_spawn2" type="Marker2D" parent="."]
+position = Vector2(600, 360)
 
 [node name="Box" parent="." instance=ExtResource("4_30yap")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(755, 392)
-
-[node name="Portal2" parent="." instance=ExtResource("5_g2aby")]
-
-[node name="Portal3" parent="." instance=ExtResource("6_o4mm0")]
-position = Vector2(600, 338)
-player_location = Vector2(688, 400)
 
 [node name="puzzleButton" parent="." instance=ExtResource("7_jova5")]
 position = Vector2(755, 376)
@@ -114,7 +101,15 @@ position = Vector2(755, 376)
 [node name="door" parent="." instance=ExtResource("8_mhdxd")]
 position = Vector2(600, 342)
 
-[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
-[connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
+[node name="tentPortal" parent="." instance=ExtResource("3_3hg67")]
+position = Vector2(136, 175)
+next_scene = "res://Scenes/tent.tscn"
+player_location = Vector2(145, 135)
+
+[node name="dungeonPortal" parent="." instance=ExtResource("3_3hg67")]
+position = Vector2(600, 342)
+next_scene = "res://Scenes/dungeon.tscn"
+player_location = Vector2(575, 585)
+
 [connection signal="pushed" from="puzzleButton" to="door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="puzzleButton" to="door" method="_on_puzzle_button_unpushed"]

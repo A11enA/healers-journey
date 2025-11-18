@@ -3157,7 +3157,7 @@ rotation = 6.28319
 shape = SubResource("WorldBoundaryShape2D_wrqpn")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(144, 136)
+position = Vector2(145, 135)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]

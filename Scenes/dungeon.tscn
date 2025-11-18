@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://dqhypxrwbijx5"]
+[gd_scene load_steps=7 format=4 uid="uid://dqhypxrwbijx5"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_is75n"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="2_ydhmy"]
+[ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="3_3kofl"]
+[ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="4_qqyiw"]
+[ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="5_y142u"]
+[ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="6_f5akl"]
 
 [node name="dungeon" type="Node2D"]
 
@@ -19,10 +23,58 @@ tile_map_data = PackedByteArray("AAAHAAUADgAAAAcAAAAHAAYADgAAAAcAAAAHAAcADgAAAAc
 tile_set = ExtResource("1_is75n")
 
 [node name="player" parent="." instance=ExtResource("2_ydhmy")]
-position = Vector2(576, 584)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(576, 584)
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(575, 585)
+
+[node name="nextLevelPuzzle" type="Node2D" parent="."]
+position = Vector2(680, 24)
+
+[node name="puzzleButton" parent="nextLevelPuzzle" instance=ExtResource("3_3kofl")]
+
+[node name="puzzleBox1" parent="nextLevelPuzzle" instance=ExtResource("4_qqyiw")]
+position = Vector2(-104, 40)
+
+[node name="puzzleButton2" parent="nextLevelPuzzle" instance=ExtResource("3_3kofl")]
+position = Vector2(-536, 64)
+
+[node name="puzzleBox2" parent="nextLevelPuzzle" instance=ExtResource("4_qqyiw")]
+position = Vector2(-400, 104)
+
+[node name="exitPuzzle" type="Node2D" parent="."]
+position = Vector2(984, 329)
+
+[node name="exitButton" parent="exitPuzzle" instance=ExtResource("3_3kofl")]
+
+[node name="exitBox" parent="exitPuzzle" instance=ExtResource("4_qqyiw")]
+position = Vector2(0, -49)
+
+[node name="portals" type="Node2D" parent="."]
+position = Vector2(680, 321)
+
+[node name="Exit" type="Node2D" parent="portals"]
+
+[node name="exitDoor" parent="portals/Exit" instance=ExtResource("6_f5akl")]
+position = Vector2(-104, 159)
+
+[node name="exitPortal" parent="portals/Exit" instance=ExtResource("5_y142u")]
+position = Vector2(-104, 159)
+next_scene = "res://Scenes/main.tscn"
+player_location = Vector2(600, 360)
+
+[node name="nextLevel" type="Node2D" parent="portals"]
+
+[node name="nextLevelDoor" parent="portals/nextLevel" instance=ExtResource("6_f5akl")]
+button_presses_needed = 2
+
+[node name="nextLevelPortal" parent="portals/nextLevel" instance=ExtResource("5_y142u")]
+
+[connection signal="pushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_pushed"]
+[connection signal="unpushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_unpushed"]
+[connection signal="pushed" from="nextLevelPuzzle/puzzleButton2" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_pushed"]
+[connection signal="unpushed" from="nextLevelPuzzle/puzzleButton2" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_unpushed"]
+[connection signal="pushed" from="exitPuzzle/exitButton" to="portals/Exit/exitDoor" method="_on_puzzle_button_pushed"]
+[connection signal="unpushed" from="exitPuzzle/exitButton" to="portals/Exit/exitDoor" method="_on_puzzle_button_unpushed"]

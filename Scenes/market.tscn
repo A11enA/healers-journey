@@ -2461,7 +2461,7 @@ player_location = Vector2(896, 32)
 shape = SubResource("RectangleShape2D_l51c8")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(560, 600)
+position = Vector2(560, 590)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
