@@ -10,6 +10,9 @@ region = Rect2(15.7353, 47.9761, 16.5784, 16.9146)
 size = Vector2(14, 14)
 
 [node name="Box" type="RigidBody2D" groups=["pushable"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 26
 gravity_scale = 0.0
 linear_damp = 21.0
 

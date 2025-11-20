@@ -34,6 +34,8 @@ animations = [{
 }]
 
 [node name="puzzleButton" type="Area2D"]
+collision_layer = 4
+collision_mask = 30
 script = ExtResource("1_hh6bs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

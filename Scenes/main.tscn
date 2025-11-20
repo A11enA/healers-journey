@@ -54,6 +54,8 @@ tile_set = ExtResource("1_vr8h3")
 z_index = 2
 y_sort_enabled = true
 position = Vector2(135, 200)
+collision_layer = 2
+collision_mask = 21
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
@@ -84,10 +86,10 @@ position = Vector2(900, 0)
 next_scene = "res://Scenes/market.tscn"
 player_location = Vector2(560, 590)
 
-[node name="player_spawn" type="Marker2D" parent="."]
+[node name="initailSpawn" type="Marker2D" parent="."]
 position = Vector2(135, 200)
 
-[node name="player_spawn2" type="Marker2D" parent="."]
+[node name="dungeonSpawn" type="Marker2D" parent="."]
 position = Vector2(600, 360)
 
 [node name="Box" parent="." instance=ExtResource("4_30yap")]
@@ -104,7 +106,7 @@ position = Vector2(600, 342)
 [node name="tentPortal" parent="." instance=ExtResource("3_3hg67")]
 position = Vector2(136, 175)
 next_scene = "res://Scenes/tent.tscn"
-player_location = Vector2(145, 135)
+player_location = Vector2(90, 95)
 
 [node name="dungeonPortal" parent="." instance=ExtResource("3_3hg67")]
 position = Vector2(600, 342)

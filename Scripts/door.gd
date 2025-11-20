@@ -25,3 +25,4 @@ func _on_puzzle_button_unpushed() -> void:
 	if buttons_pressed != button_presses_needed:
 		$AnimatedSprite2D.animation = "closed"
 		$CollisionShape2D.set_deferred("disabled", false)
+		$move.play()
