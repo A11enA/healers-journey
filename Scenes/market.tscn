@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c10mu3ogmo6m7" path="res://assets/Backgrounds/Tilesets/TilesetNature.png" id="4_uvihd"]
 [ext_resource type="Texture2D" uid="uid://t46kffkrwta2" path="res://assets/Backgrounds/Tilesets/TilesetTowers.png" id="5_pglsc"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3166g"]
-[ext_resource type="Script" path="res://Scripts/Portal.gd" id="7_mer4u"]
+[ext_resource type="Script" uid="uid://b48fpq1bqslao" path="res://Scripts/Portal.gd" id="7_mer4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnuso"]
 texture = ExtResource("1_10fw6")
@@ -2446,7 +2446,6 @@ tile_set = SubResource("TileSet_dfexq")
 [node name="player" parent="." instance=ExtResource("6_3166g")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(144, 200)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
