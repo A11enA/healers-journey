@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://cdcnof1h8qh68"]
+[gd_scene load_steps=10 format=4 uid="uid://cdcnof1h8qh68"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_vr8h3"]
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_3hg67"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="4_30yap"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3me1x"]
+[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="7_h4fni"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="7_jova5"]
+[ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="8_gir6m"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="8_mhdxd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27wyp"]
@@ -111,6 +113,34 @@ player_location = Vector2(90, 95)
 position = Vector2(600, 342)
 next_scene = "res://Scenes/dungeon.tscn"
 player_location = Vector2(575, 585)
+
+[node name="miniMap" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="miniMap"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -266.0
+offset_right = 246.0
+offset_bottom = 512.0
+grow_horizontal = 0
+scale = Vector2(0.519999, 0.4)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="miniMap/SubViewportContainer" node_paths=PackedStringArray("camera_node", "player_node")]
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("7_h4fni")
+camera_node = NodePath("Camera2D")
+player_node = NodePath("../../../player")
+
+[node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
+zoom = Vector2(2, 2)
+
+[node name="Mouse" parent="." instance=ExtResource("8_gir6m")]
+position = Vector2(181, 270)
 
 [connection signal="pushed" from="puzzleButton" to="door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="puzzleButton" to="door" method="_on_puzzle_button_unpushed"]

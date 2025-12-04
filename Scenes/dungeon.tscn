@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dqhypxrwbijx5"]
+[gd_scene load_steps=10 format=4 uid="uid://dqhypxrwbijx5"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_is75n"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="2_ydhmy"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="5_y142u"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="6_f5akl"]
 [ext_resource type="PackedScene" uid="uid://cl3urgd6elh36" path="res://Scenes/blockStopper.tscn" id="7_rr0o4"]
+[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="8_m65d3"]
+[ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="9_chd7h"]
 
 [node name="dungeon" type="Node2D"]
 
@@ -37,13 +39,13 @@ position = Vector2(680, 24)
 [node name="puzzleButton" parent="nextLevelPuzzle" instance=ExtResource("3_3kofl")]
 
 [node name="puzzleBox1" parent="nextLevelPuzzle" instance=ExtResource("4_qqyiw")]
-position = Vector2(-104, 40)
+position = Vector2(-16, 1)
 
 [node name="puzzleButton2" parent="nextLevelPuzzle" instance=ExtResource("3_3kofl")]
 position = Vector2(-536, 64)
 
 [node name="puzzleBox2" parent="nextLevelPuzzle" instance=ExtResource("4_qqyiw")]
-position = Vector2(-400, 104)
+position = Vector2(-520, 65)
 
 [node name="exitPuzzle" type="Node2D" parent="."]
 position = Vector2(984, 329)
@@ -51,7 +53,7 @@ position = Vector2(984, 329)
 [node name="exitButton" parent="exitPuzzle" instance=ExtResource("3_3kofl")]
 
 [node name="exitBox" parent="exitPuzzle" instance=ExtResource("4_qqyiw")]
-position = Vector2(0, -49)
+position = Vector2(0, -16)
 
 [node name="portals" type="Node2D" parent="."]
 position = Vector2(680, 321)
@@ -75,46 +77,77 @@ button_presses_needed = 2
 next_scene = "res://Scenes/dungeon_lvl_2.tscn"
 player_location = Vector2(775, 110)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("7_rr0o4")]
+[node name="blockBlocks" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(376, 120)
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D3" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(376, 200)
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D2" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(264, 248)
 rotation = 1.57079
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D4" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(568, 168)
 rotation = 1.57079
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D5" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D5" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(440, 104)
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D6" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D6" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(680, 152)
 rotation = 0.785397
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D7" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D7" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(784, 256)
 rotation = 0.785397
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D9" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D9" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(784, 408)
 rotation = -0.785397
 scale = Vector2(1.65192, 3.35673)
 
-[node name="StaticBody2D8" parent="." instance=ExtResource("7_rr0o4")]
+[node name="StaticBody2D8" parent="blockBlocks" instance=ExtResource("7_rr0o4")]
 position = Vector2(752, 344)
 scale = Vector2(1.65192, 3.35673)
+
+[node name="miniMap" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="miniMap"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -266.0
+offset_right = 246.0
+offset_bottom = 512.0
+grow_horizontal = 0
+scale = Vector2(0.519999, 0.4)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="miniMap/SubViewportContainer" node_paths=PackedStringArray("camera_node", "player_node")]
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("8_m65d3")
+camera_node = NodePath("Camera2D")
+player_node = NodePath("../../../player")
+
+[node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
+zoom = Vector2(2, 2)
+
+[node name="Mouse" parent="." instance=ExtResource("9_chd7h")]
+position = Vector2(656, 528)
 
 [connection signal="pushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_unpushed"]

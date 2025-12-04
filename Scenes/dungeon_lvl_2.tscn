@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dgbsdedw2khid"]
+[gd_scene load_steps=8 format=4 uid="uid://dgbsdedw2khid"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_hofyk"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="2_lbt3v"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_p6yry"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="5_244i5"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="6_7gx6m"]
+[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="7_e604q"]
 
 [node name="Dungeon Lvl 2" type="Node2D"]
 
@@ -48,6 +49,31 @@ position = Vector2(360, 361)
 
 [node name="puzzleButton" parent="Exit" instance=ExtResource("6_7gx6m")]
 position = Vector2(376, 360)
+
+[node name="miniMap" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="miniMap"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -266.0
+offset_right = 246.0
+offset_bottom = 512.0
+grow_horizontal = 0
+scale = Vector2(0.519999, 0.4)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="miniMap/SubViewportContainer" node_paths=PackedStringArray("camera_node", "player_node")]
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("7_e604q")
+camera_node = NodePath("Camera2D")
+player_node = NodePath("../../../player")
+
+[node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
+zoom = Vector2(2, 2)
 
 [connection signal="pushed" from="Exit/puzzleButton" to="Exit/door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="Exit/puzzleButton" to="Exit/door" method="_on_puzzle_button_unpushed"]
