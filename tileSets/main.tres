@@ -591,6 +591,7 @@ texture = ExtResource("2_h53gm")
 20:0/0/terrains_peering_bit/top_side = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/probability = 85.0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -3184,6 +3185,8 @@ texture = ExtResource("12_aeu1f")
 5:3/0 = 0
 6:3/0 = 0
 7:3/0 = 0
+1:1/0 = 0
+1:1/0/probability = 99.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bevaa"]
 texture = ExtResource("13_xaqcd")
