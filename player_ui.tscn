@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx0gmi1gbdosg"]
+
+[ext_resource type="Texture2D" uid="uid://nqsl36rbbhsk" path="res://assets/Ui/LifeReceptacle/heart_2.png" id="1_lwipk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m0x8"]
+atlas = ExtResource("1_lwipk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwipk"]
+atlas = ExtResource("1_lwipk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_654h1"]
+atlas = ExtResource("1_lwipk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc08v"]
+atlas = ExtResource("1_lwipk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4em4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m0x8")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwipk")
+}],
+"loop": true,
+"name": &"one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_654h1")
+}],
+"loop": true,
+"name": &"three",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc08v")
+}],
+"loop": true,
+"name": &"two",
+"speed": 5.0
+}]
+
+[node name="Player UI" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HPBar" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_a4em4")
+animation = &"dead"

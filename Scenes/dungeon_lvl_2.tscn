@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_p6yry"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="5_244i5"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="6_7gx6m"]
-[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="7_e604q"]
+[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="7_e604q"]
 
 [node name="Dungeon Lvl 2" type="Node2D"]
 

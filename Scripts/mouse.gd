@@ -1,7 +1,7 @@
 extends CharacterBody2D
+class_name Enemy
 
-
-@export var speed = 30
+@export var speed = 15
 @export var hp:int = 3
 
 var target: Node2D
@@ -11,14 +11,14 @@ func _physics_process(delta: float) -> void:
 		chasing()
 	else:
 		#random or patrol
-		speed = 50
+		speed = 15
 	animate_enemy()
 	
 	move_and_slide()
 
 func chasing():
 	var distance_to_player: Vector2
-	distance_to_player = target.global_position - $CollisionPolygon2D.global_position
+	distance_to_player = target.global_position - $CollisionShape2D.global_position
 	var direction_normal: Vector2 = distance_to_player.normalized()
 	if speed > 0.0:
 		speed -=0.01
@@ -39,4 +39,4 @@ func animate_enemy():
 func _on_chasing_radius_body_entered(body: Node2D) -> void:
 	if body is Player:
 		target = body
-		speed = 30
+		speed = 15

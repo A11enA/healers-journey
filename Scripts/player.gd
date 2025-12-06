@@ -8,7 +8,11 @@ const run_speed: float = 150.0
 @export var acceleration: float = 10
 
 func _ready() -> void:
+	updateHP()
 	position = SceneManager.player_spawn_position
+	
+	$Staff.visible = false
+	%Staff_area.monitoring = false
 
 func _process(delta:float):
 	if Input.is_action_just_pressed("interact"):
@@ -50,17 +54,17 @@ func _physics_process(delta: float) -> void:
 			var collision_normal: Vector2 = collision.get_normal()
 			collider_node.apply_central_force(-collision_normal * push_strength)
 	move_and_slide()
-	
 func attack():
 	pass #show weapon, somewhere hide weapon
 	$Staff.visible = true
-	$Staff/Staff_area.monitoring = false
 	#turn collision on and off
+	%Staff_area.monitoring = true
+	$Weapon_Timer.start()
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
-		SceneManager.player_hp -= 1
-		print(SceneManager.player_hp)
+func _on_hit_box_body_entered(body: CollisionShape2D) -> void:
+	SceneManager.player_hp -= 1
+	print(SceneManager.player_hp)
+	updateHP()
 	#die function reint scene
 	if SceneManager.player_hp <= 0:
 		die()
@@ -69,8 +73,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	distance_to_player = global_position - body.global_position
 	var knockback_direction: Vector2 = distance_to_player.normalized()
 	var knockback_strength: float = 200
-	if body.is_in_group("enemy"):
-		velocity += knockback_direction * knockback_strength
+	velocity += knockback_direction * knockback_strength
 	
 func die():
 	SceneManager.player_hp = 3
@@ -79,5 +82,21 @@ func die():
 
 func _on_staff_area_body_entered(body: Node2D) -> void:
 	body.hp -= 1
+	SceneManager.player_hp += 1
 	if body.hp <= 0:
 		body.queue_free()
+
+func updateHP():
+	if SceneManager.player_hp >= 3:
+		%HPBar.play("three")
+	elif SceneManager.player_hp == 2:
+		%HPBar.play("two")
+	elif SceneManager.player_hp == 1:
+		%HPBar.play("one")
+	elif SceneManager.player_hp == 0:
+		%HPBar.play("dead")
+
+
+func _on_weapon_timer_timeout() -> void:
+	$Staff.visible = false
+	%Staff_area.monitoring = false

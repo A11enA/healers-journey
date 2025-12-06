@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b5aslwyi15qq4"]
+[gd_scene load_steps=17 format=4 uid="uid://b5aslwyi15qq4"]
 
 [ext_resource type="Texture2D" uid="uid://b86kfhb83h7og" path="res://assets/Backgrounds/Tilesets/TilesetHouse.png" id="1_10fw6"]
 [ext_resource type="Texture2D" uid="uid://b6jm8laltqdux" path="res://assets/Backgrounds/Tilesets/TilesetFloor.png" id="2_7w5nj"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://t46kffkrwta2" path="res://assets/Backgrounds/Tilesets/TilesetTowers.png" id="5_pglsc"]
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="6_7p7xe"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3166g"]
-[ext_resource type="Script" path="res://Scripts/Portal.gd" id="7_mer4u"]
-[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="8_yq67h"]
+[ext_resource type="Script" uid="uid://b48fpq1bqslao" path="res://Scripts/Portal.gd" id="7_mer4u"]
+[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="8_yq67h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnuso"]
 texture = ExtResource("1_10fw6")

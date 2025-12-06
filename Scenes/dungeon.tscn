@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="5_y142u"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="6_f5akl"]
 [ext_resource type="PackedScene" uid="uid://cl3urgd6elh36" path="res://Scenes/blockStopper.tscn" id="7_rr0o4"]
-[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="8_m65d3"]
+[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="8_m65d3"]
 [ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="9_chd7h"]
 
 [node name="dungeon" type="Node2D"]
