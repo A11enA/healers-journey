@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://cxcjdjedvt0ca"]
 
 [ext_resource type="Texture2D" uid="uid://cv23c112pbbfe" path="res://assets/Actor/Monsters/Mouse/SpriteSheet.png" id="1_48w8d"]
-[ext_resource type="Script" uid="uid://cxpvpuld0comg" path="res://Scripts/mouse.gd" id="1_uifyb"]
+[ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_uifyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ber4"]
 size = Vector2(12, 20)
@@ -142,7 +142,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jiba"]
-radius = 64.49806
+radius = 64.4981
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s84ts"]
 size = Vector2(16, 16)
@@ -150,7 +150,7 @@ size = Vector2(16, 16)
 [node name="Mouse" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 16
-collision_mask = 21
+collision_mask = 5
 script = ExtResource("1_uifyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -170,8 +170,10 @@ shape = SubResource("CircleShape2D_1jiba")
 
 [node name="hitBox" type="Area2D" parent="."]
 scale = Vector2(0.889001, 1.32526)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 shape = SubResource("RectangleShape2D_s84ts")
 
 [connection signal="body_entered" from="chasingRadius" to="." method="_on_chasing_radius_body_entered"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

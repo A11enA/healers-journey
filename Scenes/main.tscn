@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cdcnof1h8qh68"]
+[gd_scene load_steps=9 format=4 uid="uid://cdcnof1h8qh68"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_vr8h3"]
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_3hg67"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="4_30yap"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3me1x"]
-[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="7_h4fni"]
+[ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="7_h4fni"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="7_jova5"]
-[ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="8_gir6m"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="8_mhdxd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27wyp"]
@@ -59,7 +58,6 @@ tile_set = ExtResource("1_vr8h3")
 [node name="player" parent="." instance=ExtResource("6_3me1x")]
 z_index = 2
 y_sort_enabled = true
-collision_layer = 2
 collision_mask = 21
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -142,9 +140,6 @@ player_node = NodePath("../../../player")
 
 [node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
 zoom = Vector2(2, 2)
-
-[node name="Mouse" parent="." instance=ExtResource("8_gir6m")]
-position = Vector2(559, 246)
 
 [connection signal="pushed" from="puzzleButton" to="door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="puzzleButton" to="door" method="_on_puzzle_button_unpushed"]

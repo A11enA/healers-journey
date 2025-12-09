@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbicxu3y0lbwp"]
 
-[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="1_4i782"]
+[ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="1_4i782"]
 
 [node name="mini_map" type="CanvasLayer"]
 

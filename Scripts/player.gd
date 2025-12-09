@@ -7,6 +7,8 @@ const run_speed: float = 150.0
 @export var push_strength: float = 140
 @export var acceleration: float = 10
 
+var is_attacking: bool = false
+
 func _ready() -> void:
 	updateHP()
 	position = SceneManager.player_spawn_position
@@ -40,8 +42,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("walk_up")
 	else:
 		$AnimatedSprite2D.stop()
-	
-	
+		
+		
 	
 	var collision: KinematicCollision2D = get_last_slide_collision()
 	
@@ -55,13 +57,34 @@ func _physics_process(delta: float) -> void:
 			collider_node.apply_central_force(-collision_normal * push_strength)
 	move_and_slide()
 func attack():
-	pass #show weapon, somewhere hide weapon
+	$magic.play()
+	is_attacking = true
+	velocity = Vector2.ZERO
 	$Staff.visible = true
 	#turn collision on and off
 	%Staff_area.monitoring = true
 	$Weapon_Timer.start()
+	
+	$Staff/magic.play()
+	
+	#check what animation is playing
+	var player_animation: String = $AnimatedSprite2D.animation
 
-func _on_hit_box_body_entered(body: CollisionShape2D) -> void:
+	if player_animation == "walk_right":
+		$AnimationPlayer.play("lifesteal_right")
+		$AnimatedSprite2D.play("attack_right")
+	elif player_animation == "walk_left":
+		$AnimationPlayer.play("lifesteal_left")
+		$AnimatedSprite2D.play("attack_left")
+	elif player_animation == "walk_down":
+		$AnimationPlayer.play("lifesteal_down")
+		$AnimatedSprite2D.play("attack_down")
+	elif player_animation == "walk_up":
+		$AnimationPlayer.play("lifesteal_up")
+		$AnimatedSprite2D.play("attack_up")
+
+func _on_hit_box_body_entered(body: CharacterBody2D) -> void:
+	$playerHit.play()
 	SceneManager.player_hp -= 1
 	print(SceneManager.player_hp)
 	updateHP()
@@ -81,6 +104,7 @@ func die():
 
 
 func _on_staff_area_body_entered(body: Node2D) -> void:
+	$enemyHit.play()
 	body.hp -= 1
 	SceneManager.player_hp += 1
 	if body.hp <= 0:
@@ -98,5 +122,20 @@ func updateHP():
 
 
 func _on_weapon_timer_timeout() -> void:
+	is_attacking = false
+	
 	$Staff.visible = false
 	%Staff_area.monitoring = false
+	
+	var player_animation: String = $AnimatedSprite2D.animation
+
+	if player_animation == "attack_right":
+		$AnimatedSprite2D.play("walk_right")
+	elif player_animation == "attack_left":
+		$AnimatedSprite2D.play("walk_left")
+	elif player_animation == "attack_down":
+		$AnimatedSprite2D.play("walk_down")
+	elif player_animation == "attack_up":
+		$AnimatedSprite2D.play("walk_up")
+		
+		$Staff/magic.stop()

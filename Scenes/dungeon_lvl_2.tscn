@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgbsdedw2khid"]
+[gd_scene load_steps=9 format=4 uid="uid://dgbsdedw2khid"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_hofyk"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="2_lbt3v"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_p6yry"]
 [ext_resource type="PackedScene" uid="uid://dmqusa6n2wvtq" path="res://Scenes/box.tscn" id="5_244i5"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="6_7gx6m"]
-[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="7_e604q"]
+[ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="7_e604q"]
+[ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="8_fas28"]
 
 [node name="Dungeon Lvl 2" type="Node2D"]
 
@@ -74,6 +75,24 @@ player_node = NodePath("../../../player")
 
 [node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
 zoom = Vector2(2, 2)
+
+[node name="Mouse" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(408, -136)
+
+[node name="Mouse2" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(552, -80)
+
+[node name="Mouse3" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(368, 448)
+
+[node name="Mouse4" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(432, 576)
+
+[node name="Mouse5" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(768, 424)
+
+[node name="Mouse6" parent="." instance=ExtResource("8_fas28")]
+position = Vector2(760, 568)
 
 [connection signal="pushed" from="Exit/puzzleButton" to="Exit/door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="Exit/puzzleButton" to="Exit/door" method="_on_puzzle_button_unpushed"]

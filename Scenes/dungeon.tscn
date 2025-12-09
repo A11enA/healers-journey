@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="5_y142u"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="6_f5akl"]
 [ext_resource type="PackedScene" uid="uid://cl3urgd6elh36" path="res://Scenes/blockStopper.tscn" id="7_rr0o4"]
-[ext_resource type="Script" uid="uid://by0bvkm88sir8" path="res://Scripts/sub_viewport.gd" id="8_m65d3"]
+[ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="8_m65d3"]
 [ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="9_chd7h"]
 
 [node name="dungeon" type="Node2D"]
@@ -147,7 +147,16 @@ player_node = NodePath("../../../player")
 zoom = Vector2(2, 2)
 
 [node name="Mouse" parent="." instance=ExtResource("9_chd7h")]
-position = Vector2(656, 528)
+position = Vector2(848, 328)
+
+[node name="Mouse2" parent="." instance=ExtResource("9_chd7h")]
+position = Vector2(248, 160)
+
+[node name="Mouse3" parent="." instance=ExtResource("9_chd7h")]
+position = Vector2(568, 81)
+
+[node name="Mouse4" parent="." instance=ExtResource("9_chd7h")]
+position = Vector2(288, 368)
 
 [connection signal="pushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_unpushed"]
