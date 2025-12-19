@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b5aslwyi15qq4"]
+[gd_scene load_steps=18 format=4 uid="uid://b5aslwyi15qq4"]
 
 [ext_resource type="Texture2D" uid="uid://b86kfhb83h7og" path="res://assets/Backgrounds/Tilesets/TilesetHouse.png" id="1_10fw6"]
 [ext_resource type="Texture2D" uid="uid://b6jm8laltqdux" path="res://assets/Backgrounds/Tilesets/TilesetFloor.png" id="2_7w5nj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="6_3166g"]
 [ext_resource type="Script" path="res://Scripts/Portal.gd" id="7_mer4u"]
 [ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="8_yq67h"]
+[ext_resource type="AudioStream" uid="uid://dyx2s2yvu0bgn" path="res://assets/Musics/5 - Peaceful.ogg" id="10_xb6ug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnuso"]
 texture = ExtResource("1_10fw6")
@@ -2500,6 +2501,12 @@ player_node = NodePath("../../../player")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xb6ug")
+autoplay = true
+stream_paused = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]

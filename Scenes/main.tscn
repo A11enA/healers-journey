@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cdcnof1h8qh68"]
+[gd_scene load_steps=10 format=4 uid="uid://cdcnof1h8qh68"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_vr8h3"]
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="3_3hg67"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="7_h4fni"]
 [ext_resource type="PackedScene" uid="uid://dsjhp6voi5ccb" path="res://Scenes/puzzle_button.tscn" id="7_jova5"]
 [ext_resource type="PackedScene" uid="uid://nyd80388cm70" path="res://Scenes/door.tscn" id="8_mhdxd"]
+[ext_resource type="AudioStream" uid="uid://b8guht2jmqlup" path="res://assets/Musics/4 - Village.ogg" id="8_q3ng4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27wyp"]
 
@@ -140,6 +141,11 @@ player_node = NodePath("../../../player")
 
 [node name="Camera2D" type="Camera2D" parent="miniMap/SubViewportContainer/SubViewport"]
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_q3ng4")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pushed" from="puzzleButton" to="door" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="puzzleButton" to="door" method="_on_puzzle_button_unpushed"]

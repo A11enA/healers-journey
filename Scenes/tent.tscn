@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dyyy3ybxiyrpa"]
+[gd_scene load_steps=6 format=4 uid="uid://dyyy3ybxiyrpa"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_17jqc"]
 [ext_resource type="PackedScene" uid="uid://ds1mgmq25ayg4" path="res://Scenes/main_tile_map.tscn" id="2_75ce8"]
 [ext_resource type="PackedScene" uid="uid://jyxl6877y63r" path="res://Scenes/portal.tscn" id="4_m8jum"]
+[ext_resource type="AudioStream" uid="uid://wank57m0tmbo" path="res://assets/Musics/27 - Chill.ogg" id="5_5u21b"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="10_sam5a"]
 
 [node name="Tent" type="Node2D"]
@@ -42,3 +43,9 @@ position = Vector2(90, 95)
 position = Vector2(90, 120)
 next_scene = "res://Scenes/main.tscn"
 player_location = Vector2(135, 200)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5u21b")
+autoplay = true
+stream_paused = true
+parameters/looping = true

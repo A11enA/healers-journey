@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dqhypxrwbijx5"]
+[gd_scene load_steps=11 format=4 uid="uid://dqhypxrwbijx5"]
 
 [ext_resource type="TileSet" uid="uid://4jixq8hojvdx" path="res://tileSets/main.tres" id="1_is75n"]
 [ext_resource type="PackedScene" uid="uid://dpge13kv30ref" path="res://Scenes/player.tscn" id="2_ydhmy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cl3urgd6elh36" path="res://Scenes/blockStopper.tscn" id="7_rr0o4"]
 [ext_resource type="Script" path="res://Scripts/sub_viewport.gd" id="8_m65d3"]
 [ext_resource type="PackedScene" uid="uid://cxcjdjedvt0ca" path="res://Scenes/mouse.tscn" id="9_chd7h"]
+[ext_resource type="AudioStream" uid="uid://bt8d65br1yq3h" path="res://assets/Musics/2 - The Cave.ogg" id="10_ahoap"]
 
 [node name="dungeon" type="Node2D"]
 
@@ -157,6 +158,12 @@ position = Vector2(568, 81)
 
 [node name="Mouse4" parent="." instance=ExtResource("9_chd7h")]
 position = Vector2(288, 368)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ahoap")
+autoplay = true
+stream_paused = true
+parameters/looping = true
 
 [connection signal="pushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_pushed"]
 [connection signal="unpushed" from="nextLevelPuzzle/puzzleButton" to="portals/nextLevel/nextLevelDoor" method="_on_puzzle_button_unpushed"]
